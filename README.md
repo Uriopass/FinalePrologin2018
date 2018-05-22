@@ -89,20 +89,20 @@ Le cout principal: le score de "capture"
   qu'aucun agent ennemi (qui n'est pas en train de capturer un alien d'une valeur plus elevee)
   ne peux le pousser avant qu'il finisse sa capture.
 
-Le score de distance :
+Le score de distance :  
  L'idee est d'encourager les agents a se rapprocher des aliens interessant.  
  Pour cela, on va regarder pour chaque alien l'agent allie/enemi qui n'est pas en train de capturer un autre 
  alien le plus proche.
  Puis on va faire la difference de la distance et multiplier par le poids de l'alien.
 
-Le score de presence :
+Le score de presence :  
  L'idee est d'avoir une "presence" sur la map, au sens que les penguins sont tous relativement proche d'aliens dans un futur proche/actuel.  
  A la base, cela correspondait simplement au nombre de cases atteignables avant l'enemi (diagramme de voronoi), 
  mais cela etait une metrique totalement inutile.
  Pour cela, on va ponderer la distance a tout les aliens par leurs poids et leur distance dans le temps.  
  score presence -= dist * poids / dist_temps
 
-Le score d'oracle :  
+Le score d'oracle :    
  L'idee est de pousser les agents a se mettre aux emplacements PRECIS ou un alien va apparaitre (presence pondere simplement)
  Pour cela on va simplement regarder si un alien va bientot apparaitre sur les cases des agents (pondere par leurs poids evidemment).
  score oracle += poids * va_apparaitre
